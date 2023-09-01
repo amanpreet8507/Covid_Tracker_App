@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container{
+    padding: 10px 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    color: #fff;
+}
+
+.navbar-left img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navbar-right select {
+    background-color: #a5a1a1;
+    color: #fff;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.alert-container {
+    height: 200px;
+    background-color:rgb(196, 240, 240);
+    margin: 35px 0px 35px 0px;
+    border-radius: 30px;
+}
+
+.alert-container-child{
+    height: 190px;
+    color: black;
+    font-weight: bold;
+    font-size: large;
+    padding: 40px;
+    align-items:end;
+}
+
+.btn-group-container{ 
+    width: 100%;
+    margin: 10px 10px 10px 10px;
+    display: flex;
+    background-color: #f1c3a4;  
+    border-radius: 40px;
+    height: 70px;
+    padding: 1% 2.5% 1% 2.5%;
+}
+
+.btn-group-container button{
+    width: 48%;
+    border-radius: 40px;
+    color: white;
+    border: none;
+    font-weight:bold;
+    height: 40px;
+}
+
+.tracker-btn{
+    margin:7.5px 10px 7.5px 10px ;
+}
+.symptoms-btn{
+    margin: 7.5px 10px 7.5px 10px;
+}
+
+.global-data-navbar{
+   
+}
+
+.global-list{
+    display: flex;
+    list-style:none;
+}
+
+.global-list li {
+    margin: 20px;
+    font-weight: bold;
+}
+
+.div1{
+    width: 48%;
+    height: 200px;
+    background-color: lightpink;
+    margin-right: 10px;
+    border-radius: 35px;
+}
+
+.div2{
+    width: 48%;
+    height: 200px;
+    background-color:lightblue;
+    margin-left: 10px;
+    border-radius: 35px;
+}
+.div3{
+    width: 48%;
+    height: 200px;
+    background-color: lightgray;
+    margin-right: 10px;
+    border-radius: 35px;
+}
+.div4{
+    width: 48%;
+    height: 200px;
+    background-color: lightsalmon;
+    margin-left: 10px;
+    border-radius: 35px;
+}
+.pink-blue{
+    display: flex;
+}
+ .grey-salmon{
+    display: flex;
+    margin: 20px 0px 20px 0px;
+ }
