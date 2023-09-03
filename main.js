@@ -6,6 +6,7 @@ const getDataFromSource = function () {
     })
     .then(function (data) {
       covidData = data;
+      localStorage.setItem('CovidData', JSON.stringify(data))
     })
     .catch(function (error) {
       alert(error.message);
