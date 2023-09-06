@@ -3,6 +3,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.maincontainer{
+    display: flex;
+}
 .container{
     padding: 10px 10px;
 }
@@ -45,65 +48,34 @@ body {
     align-items:end;
 }
 
-.btn-group-container{ 
-    width: 100%;
-    margin: 10px 10px 10px 10px;
+.datadiv{
     display: flex;
-    background-color: #f1c3a4;  
-    border-radius: 40px;
-    height: 70px;
-    padding: 1% 2.5% 1% 2.5%;
 }
 
-.btn-group-container button{
-    width: 48%;
-    border-radius: 40px;
-    color: white;
-    border: none;
-    font-weight:bold;
-    height: 40px;
-}
-
-.tracker-btn{
-    margin:7.5px 10px 7.5px 10px ;
-}
-.symptoms-btn{
-    margin: 7.5px 10px 7.5px 10px;
-}
-
-.global-data-navbar{
-   
-}
-
-.global-list{
+.datadiv2{
     display: flex;
-    list-style:none;
 }
-
-.global-list li {
-    margin: 20px;
-    font-weight: bold;
-}
-
 .div1{
     width: 48%;
     height: 200px;
-    background-color: lightpink;
+    background-color: rgb(248, 217, 222);
     margin-right: 10px;
     border-radius: 35px;
+    color: rgb(240, 4, 82);
 }
 
 .div2{
     width: 48%;
     height: 200px;
-    background-color:lightblue;
+    background-color:rgb(198, 236, 248);
     margin-left: 10px;
     border-radius: 35px;
+    color: rgb(4, 111, 182);
 }
 .div3{
     width: 48%;
     height: 200px;
-    background-color: lightgray;
+    background-color: #c2f0c2;
     margin-right: 10px;
     border-radius: 35px;
 }
@@ -120,4 +92,14 @@ body {
  .grey-salmon{
     display: flex;
     margin: 20px 0px 20px 0px;
+ }
+
+ .heading{
+    padding: 20px;
+ }
+ 
+ .numberData{
+
+    padding-left: 10px;
+    padding-top: 50px;
  }
