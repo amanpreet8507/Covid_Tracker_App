@@ -33,49 +33,66 @@ function createCardElement1(finalOutputArray){
     let dataDiv = document.createElement("div");
     dataDiv.classList.add("datadiv");
 
+    let dataDiv2 = document.createElement("div")
+    dataDiv2.classList.add("datadiv2");
 
     //Div1
-        let firstDiv = document.createElement("div");
-        firstDiv.classList.add("div1");
+        let firstCard = document.createElement("div");
+        firstCard.classList.add("div1");
         //Heading(Number of States)
-        let firstHeading = document.createElement("h3");
-        firstHeading.textContent =  "Number of States";
-        firstHeading.classList.add("heading");
+        let firstCardHeading = document.createElement("h3");
+        firstCardHeading.textContent =  "Number of States";
+        firstCardHeading.classList.add("heading");
 
-        firstDiv.appendChild(firstHeading);
+        firstCard.appendChild(firstCardHeading);
         //Number of States Data fething from API
         let numOfStates = document.createElement("h1");
         numOfStates.textContent = finalOutputArray[0].states;
         numOfStates.classList.add("numberData");
 
-        firstDiv.appendChild(numOfStates);
+        firstCard.appendChild(numOfStates);
         
         
     //Div2
-        let secondDiv= document.createElement("div");
-        secondDiv.classList.add("div2");
+        let secondCard= document.createElement("div");
+        secondCard.classList.add("div2");
         //Heading(Negative and positive patients)
-        let secondHeading = document.createElement("h3");
-        secondHeading.textContent = "Positive Cases";
-        secondHeading.classList.add("heading");
+        let secondCardHeading = document.createElement("h3");
+        secondCardHeading.textContent = "Positive Cases";
+        secondCardHeading.classList.add("heading");
 
-        secondDiv.appendChild(secondHeading);
+        secondCard.appendChild(secondCardHeading);
 
-        //Number of States Data fething from API
+        //Number of States Data getting from API
         let numOfPositiveCases = document.createElement("h1");
         numOfPositiveCases.textContent = finalOutputArray[0].positive;
         numOfPositiveCases.classList.add("numberData");
 
         secondDiv.appendChild(numOfPositiveCases);
     
-   
+    //Div3
+        let thirdCard = document.createElement("div");
+        thirdCard.classList.add("div3");
+        //Heading(Deceased)
+        let thirdCardHeading = document.createElement("h3");
+        thirdCardHeading.textContent = "Deceased";
+        thirdCardHeading.classList.add("heading");
+
+        thirdCard.appendChild(thirdCardHeading);
+
+        //Number of Deceased cases getting from API
+        let numOfDeaths = document.createElement("h1");
+        numOfDeaths.textContent = finalOutputArray[0].death;
+        numOfDeaths.classList.add("numberData");
+
+        thirdCard.appendChild(numOfDeaths);
 
 
         
     
     dataDiv.appendChild(firstDiv);
     dataDiv.appendChild(secondDiv);
-    
+    dataDiv2.appendChild(thirdDiv);
     
 
     container1.appendChild(dataDiv);
