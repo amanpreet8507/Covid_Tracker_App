@@ -33,6 +33,7 @@ body {
 }
 
 .alert-container {
+    width: 97%;
     height: 200px;
     background-color:rgb(196, 240, 240);
     margin: 35px 0px 35px 0px;
@@ -57,7 +58,7 @@ body {
     display: flex;
     margin-top: 10px;
 }
-.div1{
+.card1{
     width: 48%;
     height: 200px;
     background-color: rgb(248, 217, 222);
@@ -66,7 +67,7 @@ body {
     color: rgb(240, 4, 82);
 }
 
-.div2{
+.card2{
     width: 48%;
     height: 200px;
     background-color:rgb(198, 236, 248);
@@ -74,19 +75,19 @@ body {
     border-radius: 35px;
     color: rgb(4, 111, 182);
 }
-.div3{
+.card3{
     width: 48%;
     height: 200px;
     background-color: #c2f0c2;
-    margin-right: 10px;
+    margin-right: 5px;
     border-radius: 35px;
     color:darkgreen;
 }
-.div4{
+.card4{
     width: 48%;
     height: 200px;
-    background-color: lightsalmon;
-    margin-left: 10px;
+    background-color: rgb(248, 201, 183);
+    margin-left: 5px;
     border-radius: 35px;
 }
 .pink-blue{

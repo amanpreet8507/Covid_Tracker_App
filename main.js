@@ -34,9 +34,9 @@ function createCardElement1(finalOutputArray) {
   let dataDiv2 = document.createElement("div");
   dataDiv2.classList.add("datadiv2");
 
-  //Div1
+  //Card1*****************************************************
   let firstCard = document.createElement("div");
-  firstCard.classList.add("div1");
+  firstCard.classList.add("card1");
   //Heading(Number of States)
   let firstCardHeading = document.createElement("h3");
   firstCardHeading.textContent = "Number of States";
@@ -50,9 +50,9 @@ function createCardElement1(finalOutputArray) {
 
   firstCard.appendChild(numOfStates);
 
-  //Div2
+  //Card2**************************************************
   let secondCard = document.createElement("div");
-  secondCard.classList.add("div2");
+  secondCard.classList.add("card2");
   //Heading(Negative and positive patients)
   let secondCardHeading = document.createElement("h3");
   secondCardHeading.textContent = "Positive Cases";
@@ -67,9 +67,9 @@ function createCardElement1(finalOutputArray) {
 
   secondCard.appendChild(numOfPositiveCases);
 
-  //Div3
+  //Card3***************************************************
   let thirdCard = document.createElement("div");
-  thirdCard.classList.add("div3");
+  thirdCard.classList.add("card3");
   //Heading(Deceased)
   let thirdCardHeading = document.createElement("h3");
   thirdCardHeading.textContent = "Deceased";
@@ -84,10 +84,36 @@ function createCardElement1(finalOutputArray) {
 
   thirdCard.appendChild(numOfDeaths);
 
+  //Card4*************************************************
+  let forthCard = document.createElement("div");
+  forthCard.classList.add("card4");
+  //Heading(Recovered)
+  let forthCardHeading = document.createElement("h3");
+  forthCardHeading.textContent = "Recovered";
+  forthCardHeading.classList.add("heading");
+  
+  forthCard.appendChild(forthCardHeading);
+
+  //Number of Recovered Cases getting
+  let numOfRecoveredCases =  document.createElement("h1");
+  if(finalOutputArray[0].recovered === null){
+    numOfRecoveredCases.textContent = 0;
+  }
+  numOfRecoveredCases.classList.add("numberData");
+
+  forthCard.appendChild(numOfRecoveredCases);
+
+
+
+
+  
+  //Appending cards to div
   dataDiv.appendChild(firstCard);
   dataDiv.appendChild(secondCard);
   dataDiv2.appendChild(thirdCard);
+  dataDiv2.appendChild(forthCard);
 
+  //Appending divs to container
   container1.appendChild(dataDiv);
   container1.appendChild(dataDiv2);
 }
