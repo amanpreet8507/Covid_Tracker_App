@@ -55,12 +55,13 @@ body {
 
 .datadiv2{
     display: flex;
+    margin-top: 10px;
 }
 .div1{
     width: 48%;
     height: 200px;
     background-color: rgb(248, 217, 222);
-    margin-right: 10px;
+    margin-right: 5px;
     border-radius: 35px;
     color: rgb(240, 4, 82);
 }
@@ -69,7 +70,7 @@ body {
     width: 48%;
     height: 200px;
     background-color:rgb(198, 236, 248);
-    margin-left: 10px;
+    margin-left: 5px;
     border-radius: 35px;
     color: rgb(4, 111, 182);
 }
@@ -79,6 +80,7 @@ body {
     background-color: #c2f0c2;
     margin-right: 10px;
     border-radius: 35px;
+    color:darkgreen;
 }
 .div4{
     width: 48%;
