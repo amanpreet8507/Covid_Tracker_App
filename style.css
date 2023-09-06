@@ -3,6 +3,9 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.maincontainer{
+    display: flex;
+}
 .container{
     padding: 10px 10px;
 }
@@ -30,6 +33,7 @@ body {
 }
 
 .alert-container {
+    width: 97%;
     height: 200px;
     background-color:rgb(196, 240, 240);
     margin: 35px 0px 35px 0px;
@@ -45,33 +49,45 @@ body {
     align-items:end;
 }
 
-.div1{
-    width: 48%;
-    height: 200px;
-    background-color: lightpink;
-    margin-right: 10px;
-    border-radius: 35px;
+
+.datadiv{
+    display: flex;
 }
 
-.div2{
-    width: 48%;
-    height: 200px;
-    background-color:lightblue;
-    margin-left: 10px;
-    border-radius: 35px;
+.datadiv2{
+    display: flex;
+    margin-top: 10px;
 }
-.div3{
+.card1{
     width: 48%;
     height: 200px;
-    background-color: lightgray;
-    margin-right: 10px;
+    background-color: rgb(248, 217, 222);
+    margin-right: 5px;
     border-radius: 35px;
+    color: rgb(240, 4, 82);
 }
-.div4{
+
+.card2{
     width: 48%;
     height: 200px;
-    background-color: lightsalmon;
-    margin-left: 10px;
+    background-color:rgb(198, 236, 248);
+    margin-left: 5px;
+    border-radius: 35px;
+    color: rgb(4, 111, 182);
+}
+.card3{
+    width: 48%;
+    height: 200px;
+    background-color: #c2f0c2;
+    margin-right: 5px;
+    border-radius: 35px;
+    color:darkgreen;
+}
+.card4{
+    width: 48%;
+    height: 200px;
+    background-color: rgb(248, 201, 183);
+    margin-left: 5px;
     border-radius: 35px;
 }
 .pink-blue{
@@ -80,4 +96,14 @@ body {
  .grey-salmon{
     display: flex;
     margin: 20px 0px 20px 0px;
+ }
+
+ .heading{
+    padding: 20px;
+ }
+ 
+ .numberData{
+
+    padding-left: 10px;
+    padding-top: 50px;
  }
