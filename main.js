@@ -1,20 +1,6 @@
 //let covidData = [];
 const APIKEY = "https://api.covidtracking.com/v1/us/daily.json";
 
-// const getDataFromSource = function () {
-//   fetch(APIKEY)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       covidData = data;
-//       localStorage.setItem('CovidData', JSON.stringify(data))
-//       console.log(data);
-//     })
-//     .catch(function (error) {
-//       alert(error.message);
-//     });
-// };
 
 async function fethCovidData() {
   let covidData = await fetch(APIKEY);
@@ -23,6 +9,7 @@ async function fethCovidData() {
   console.log(finalOutputArray);
 
   createCardElement1(finalOutputArray);
+  createChart(finalOutputArray);
 }
 
 function createCardElement1(finalOutputArray) {
@@ -118,5 +105,98 @@ function createCardElement1(finalOutputArray) {
   container1.appendChild(dataDiv2);
 }
 
+
+function createChart(finalOutputArray){
+  
+  for(let i = 0; i < finalOutputArray.length; i++){
+    let deathIncrease;
+    deathIncrease.textContent = finalOutputArray[i].deathIncrease;
+  }
+
+  var options = {
+    series:[{
+      name: 'Death Increase',
+      data: [deathIncrease]
+    }],
+    chart: {
+      height: 300,
+      type: 'bar',
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 10,
+        dataLabels:{
+          position: 'top',
+        },
+      }
+    },
+    dataLabels: {
+      enabled: true,
+      formatter: function (val) {
+        return val + "%";
+      },
+      offsetY: -20,
+      style: {
+        fontSize: '12px',
+        colors: ["#304758"]
+      }
+    },
+    xaxis: {
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      position: 'top',
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false
+      },
+      crosshairs: {
+        fill: {
+          type: 'gradient',
+          gradient: {
+            colorFrom: '#D8E3F0',
+            colorTo: '#BED1E6',
+            stops: [0, 100],
+            opacityFrom: 0.4,
+            opacityTo: 0.5,
+          }
+        }
+      },
+      tooltip: {
+        enabled: true,
+      }
+    },
+    yaxis: {
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false,
+      },
+      labels: {
+        show: false,
+        formatter: function (val) {
+          return val + "%";
+        }
+      }
+    
+    },
+    title: {
+      text: 'Covid Death Increase',
+      floating: true,
+      offsetY: 330,
+      align: 'center',
+      style: {
+        color: '#444'
+      }
+    } 
+  };
+
+  
+  var chart = new ApexCharts(document.querySelector("#chart2"), options);
+  chart.render();
+}
+
 //getDataFromSource();
 fethCovidData();
+
