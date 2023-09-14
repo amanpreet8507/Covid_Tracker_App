@@ -1,21 +1,6 @@
 //let covidData = [];
 const APIKEY = "https://api.covidtracking.com/v1/us/daily.json";
 
-// const getDataFromSource = function () {
-//   fetch(APIKEY)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       covidData = data;
-//       localStorage.setItem('CovidData', JSON.stringify(data))
-//       console.log(data);
-//     })
-//     .catch(function (error) {
-//       alert(error.message);
-//     });
-// };
-
 async function fethCovidData() {
   let covidData = await fetch(APIKEY);
   let dataWithJSON = await covidData.json();
@@ -118,5 +103,6 @@ function createCardElement1(finalOutputArray) {
   container1.appendChild(dataDiv2);
 }
 
-//getDataFromSource();
+
+
 fethCovidData();
