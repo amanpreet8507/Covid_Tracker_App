@@ -6,10 +6,10 @@ async function fethCovidData() {
   let covidData = await fetch(APIKEY);
   let dataWithJSON = await covidData.json();
   let finalOutputArray = dataWithJSON;
-  console.log(finalOutputArray);
+  //console.log(finalOutputArray);
 
   createCardElement1(finalOutputArray);
-  createChart(finalOutputArray);
+  
 }
 
 function createCardElement1(finalOutputArray) {
