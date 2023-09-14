@@ -4,6 +4,7 @@ xmlhttp.open("GET", url, true);
 xmlhttp.onerror = function () {
   console.error("Request error:", xmlhttp.status, xmlhttp.statusText);
 };
+
 xmlhttp.onreadystatechange = function () {
   if (this.readyState == 4) {
     if (this.status == 200) {
@@ -88,7 +89,7 @@ xmlhttp.onreadystatechange = function () {
         
         },
         title: {
-          text: 'Covid Death Increase, 2020',
+          text: 'Recent Covid Death Increase',
           floating: true,
           offsetY: 330,
           align: 'center',
@@ -110,6 +111,7 @@ xmlhttp.onreadystatechange = function () {
 
   }
 };
+
 
 xmlhttp.send();
 
