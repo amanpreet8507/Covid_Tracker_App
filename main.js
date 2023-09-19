@@ -1,15 +1,11 @@
 //let covidData = [];
 const APIKEY = "https://api.covidtracking.com/v1/us/daily.json";
 
-
-async function fethCovidData() {
+async function fetchCovidData() {
   let covidData = await fetch(APIKEY);
   let dataWithJSON = await covidData.json();
-  let finalOutputArray = dataWithJSON;
-  //console.log(finalOutputArray);
-
-  createCardElement1(finalOutputArray);
-  
+  createCardElement1(dataWithJSON);
+  createChart(dataWithJSON);
 }
 
 function createCardElement1(finalOutputArray) {
@@ -107,64 +103,23 @@ function createCardElement1(finalOutputArray) {
 
 
 function createChart(finalOutputArray){
+  console.log(finalOutputArray, 'array');
   
+  let deathIncreaseArray = [];
   for(let i = 0; i < finalOutputArray.length; i++){
-    let deathIncrease;
-    deathIncrease.textContent = finalOutputArray[i].deathIncrease;
+    deathIncreaseArray.push(finalOutputArray[i].deathIncrease);
   }
+
+  console.log(deathIncreaseArray, 'deathincreasearray');
 
   var options = {
     series:[{
-      name: 'Death Increase',
-      data: [deathIncrease]
+      name: 'Last 20 Death Increase',
+      data: deathIncreaseArray.slice(0, 20)
     }],
     chart: {
       height: 300,
       type: 'bar',
-    },
-    plotOptions: {
-      bar: {
-        borderRadius: 10,
-        dataLabels:{
-          position: 'top',
-        },
-      }
-    },
-    dataLabels: {
-      enabled: true,
-      formatter: function (val) {
-        return val + "%";
-      },
-      offsetY: -20,
-      style: {
-        fontSize: '12px',
-        colors: ["#304758"]
-      }
-    },
-    xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      position: 'top',
-      axisBorder: {
-        show: false
-      },
-      axisTicks: {
-        show: false
-      },
-      crosshairs: {
-        fill: {
-          type: 'gradient',
-          gradient: {
-            colorFrom: '#D8E3F0',
-            colorTo: '#BED1E6',
-            stops: [0, 100],
-            opacityFrom: 0.4,
-            opacityTo: 0.5,
-          }
-        }
-      },
-      tooltip: {
-        enabled: true,
-      }
     },
     yaxis: {
       axisBorder: {
@@ -176,7 +131,7 @@ function createChart(finalOutputArray){
       labels: {
         show: false,
         formatter: function (val) {
-          return val + "%";
+          return val;
         }
       }
     
@@ -193,10 +148,9 @@ function createChart(finalOutputArray){
   };
 
   
-  var chart = new ApexCharts(document.querySelector("#chart2"), options);
+  var chart = new ApexCharts(document.querySelector("#barChart"), options);
   chart.render();
 }
 
-//getDataFromSource();
-fethCovidData();
+fetchCovidData();
 
