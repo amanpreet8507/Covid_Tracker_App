@@ -1,13 +1,11 @@
 //let covidData = [];
 const APIKEY = "https://api.covidtracking.com/v1/us/daily.json";
 
-async function fethCovidData() {
+async function fetchCovidData() {
   let covidData = await fetch(APIKEY);
   let dataWithJSON = await covidData.json();
-  let finalOutputArray = dataWithJSON;
-  console.log(finalOutputArray);
-
-  createCardElement1(finalOutputArray);
+  createCardElement1(dataWithJSON);
+  createChart(dataWithJSON);
 }
 
 function createCardElement1(finalOutputArray) {
@@ -104,5 +102,55 @@ function createCardElement1(finalOutputArray) {
 }
 
 
+function createChart(finalOutputArray){
+  console.log(finalOutputArray, 'array');
+  
+  let deathIncreaseArray = [];
+  for(let i = 0; i < finalOutputArray.length; i++){
+    deathIncreaseArray.push(finalOutputArray[i].deathIncrease);
+  }
 
-fethCovidData();
+  console.log(deathIncreaseArray, 'deathincreasearray');
+
+  var options = {
+    series:[{
+      name: 'Last 20 Death Increase',
+      data: deathIncreaseArray.slice(0, 20)
+    }],
+    chart: {
+      height: 300,
+      type: 'bar',
+    },
+    yaxis: {
+      axisBorder: {
+        show: false
+      },
+      axisTicks: {
+        show: false,
+      },
+      labels: {
+        show: false,
+        formatter: function (val) {
+          return val;
+        }
+      }
+    
+    },
+    title: {
+      text: 'Covid Death Increase',
+      floating: true,
+      offsetY: 330,
+      align: 'center',
+      style: {
+        color: '#444'
+      }
+    } 
+  };
+
+  
+  var chart = new ApexCharts(document.querySelector("#barChart"), options);
+  chart.render();
+}
+
+fetchCovidData();
+
