@@ -1,13 +1,18 @@
-//let covidData = [];
 const APIKEY = "https://api.covidtracking.com/v1/us/daily.json";
+
 
 async function fetchCovidData() {
   let covidData = await fetch(APIKEY);
   let dataWithJSON = await covidData.json();
   createCardElement1(dataWithJSON);
-  createChart(dataWithJSON);
+  createBarChart(dataWithJSON);
+  createPieChart(dataWithJSON);
 }
 
+
+
+
+// Four Data Cards *************************************************************************
 function createCardElement1(finalOutputArray) {
   let container1 = document.querySelector("#maincontainer");
 
@@ -17,7 +22,7 @@ function createCardElement1(finalOutputArray) {
   let dataDiv2 = document.createElement("div");
   dataDiv2.classList.add("datadiv2");
 
-  //Card1*****************************************************
+  //Card1************************************************
   let firstCard = document.createElement("div");
   firstCard.classList.add("card1");
   //Heading(Number of States)
@@ -33,7 +38,7 @@ function createCardElement1(finalOutputArray) {
 
   firstCard.appendChild(numOfStates);
 
-  //Card2**************************************************
+  //Card2*************************************************
   let secondCard = document.createElement("div");
   secondCard.classList.add("card2");
   //Heading(Negative and positive patients)
@@ -50,7 +55,7 @@ function createCardElement1(finalOutputArray) {
 
   secondCard.appendChild(numOfPositiveCases);
 
-  //Card3***************************************************
+  //Card3*************************************************
   let thirdCard = document.createElement("div");
   thirdCard.classList.add("card3");
   //Heading(Deceased)
@@ -87,8 +92,6 @@ function createCardElement1(finalOutputArray) {
   forthCard.appendChild(numOfRecoveredCases);
 
 
-
-
   
   //Appending cards to div
   dataDiv.appendChild(firstCard);
@@ -102,7 +105,9 @@ function createCardElement1(finalOutputArray) {
 }
 
 
-function createChart(finalOutputArray){
+
+// Bar Chart *******************************************************************************
+function createBarChart(finalOutputArray){
   console.log(finalOutputArray, 'array');
   
   let deathIncreaseArray = [];
@@ -151,6 +156,41 @@ function createChart(finalOutputArray){
   var chart = new ApexCharts(document.querySelector("#barChart"), options);
   chart.render();
 }
+
+
+// Pie Chart ********************************************************************************
+function createPieChart(finalOutputArray){
+  let deathCases = finalOutputArray[0].death;
+  let positiveCases = finalOutputArray[0].positive;
+  let negativeCases = finalOutputArray[0].negative;
+  let hospitalizedCases = finalOutputArray[0].hospitalized;
+  console.log(deathCases, 'deaths2022');
+
+  var options = {
+    series: [positiveCases, negativeCases, deathCases, hospitalizedCases  ],
+    chart: {
+    width: 380,
+    type: 'pie',
+  },
+  labels: ['Postive', 'Negative', 'Deaths', 'Hospitalized' ],
+  responsive: [{
+    breakpoint: 480,
+    options: {
+      chart: {
+        width: 200
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }]
+  };
+
+  var chart = new ApexCharts(document.querySelector("#pieChart"), options);
+  chart.render();
+}
+
+
 
 fetchCovidData();
 
